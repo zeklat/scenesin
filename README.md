@@ -81,7 +81,7 @@ Every project rendered with `scenesin` has instant access to studio-grade motion
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/anouarzeklat/scenesin.git
+git clone https://github.com/zeklat/scenesin.git
 cd scenesin
 ```
 *(The repository starts clean and lightweight. No 1 GB model weights are downloaded into Git!)*

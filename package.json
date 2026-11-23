@@ -31,7 +31,11 @@
     "name": "Anouar Zeklat",
     "url": "https://www.youtube.com/@anouarzeklat"
   },
-  "homepage": "https://www.youtube.com/@anouarzeklat",
+  "homepage": "https://github.com/zeklat/scenesin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zeklat/scenesin.git"
+  },
   "license": "MIT",
   "engines": {
     "node": ">=18.0.0"
