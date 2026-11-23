@@ -1,31 +1,33 @@
 """scenesin - Multi-Voice Narration Engine
-Supports local Kokoro-82M (ONNX), Edge-TTS (Zero-model-download neural voices), and mathematical timing.
-Author: Anouar Zeklat (Instagram: @anouar.co)
+Supports Edge-TTS (Zero-model-download neural voices with exact word-boundary sync),
+local Kokoro-82M (ONNX), and mathematical timing fallback.
+Author: Anouar Zeklat (Instagram: @anouar.co | YouTube: https://www.youtube.com/@anouarzeklat)
 
 Usage:
-  python scripts/voice.py <project>            Generate narration.wav + lines.json
+  python scripts/voice.py <project>            Generate narration.wav + lines.json + words.json
   python scripts/voice.py --list               List available voices
   python scripts/voice.py --download-kokoro    Download local Kokoro ONNX model files (~340 MB, optional)
 """
 
 import argparse
 import asyncio
+import glob
 import json
 import os
 import re
+import shutil
+import subprocess
 import sys
 import urllib.request
+import wave
 from pathlib import Path
 
 VOICES_PRESET = {
-    # Kokoro local voices
     'am_michael': {'name': 'Michael (US Male)', 'engine': 'kokoro', 'desc': 'Steady, authoritative explainer'},
     'af_heart': {'name': 'Heart (US Female)', 'engine': 'kokoro', 'desc': 'Warm, natural storytelling'},
     'am_puck': {'name': 'Puck (US Male)', 'engine': 'kokoro', 'desc': 'Playful, lively, upbeat'},
     'bm_george': {'name': 'George (UK Male)', 'engine': 'kokoro', 'desc': 'Classic British documentary narrator'},
     'bf_emma': {'name': 'Emma (UK Female)', 'engine': 'kokoro', 'desc': 'Calm, clear educational guide'},
-    
-    # Edge-TTS Neural voices (Instant, 0 MB model download)
     'en-US-GuyNeural': {'name': 'Guy (US Male Neural)', 'engine': 'edge', 'desc': 'Deep, confident, engaging'},
     'en-US-JennyNeural': {'name': 'Jenny (US Female Neural)', 'engine': 'edge', 'desc': 'Clear, professional, modern tech'},
     'en-US-AriaNeural': {'name': 'Aria (US Female Neural)', 'engine': 'edge', 'desc': 'Expressive, versatile, dynamic'},
@@ -35,11 +37,24 @@ VOICES_PRESET = {
 
 HOME = Path(os.environ.get('SCENESIN_HOME', Path.home() / '.scenesin'))
 KDIR = HOME / 'kokoro'
+REPO_ROOT = Path(__file__).resolve().parent.parent
 FILES = {
     'kokoro-v1.0.onnx': 'https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx',
     'voices-v1.0.bin': 'https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin',
 }
 SR = 24000
+
+
+def find_ffmpeg():
+    if os.environ.get('FFMPEG_PATH') and Path(os.environ['FFMPEG_PATH']).exists():
+        return os.environ['FFMPEG_PATH']
+    # Check bundled @ffmpeg-installer/ffmpeg inside node_modules
+    pattern = str(REPO_ROOT / 'node_modules' / '@ffmpeg-installer' / '*' / 'ffmpeg*')
+    for match in glob.glob(pattern):
+        if Path(match).is_file() and (match.endswith('.exe') or not match.endswith('.js')):
+            return match
+    sys_ff = shutil.which('ffmpeg')
+    return sys_ff or 'ffmpeg'
 
 
 def list_voices():
@@ -67,30 +82,122 @@ def ensure_kokoro_models():
         tmp.rename(p)
 
 
-async def generate_edge_tts(text, voice_name, output_wav, rate='+0%'):
+async def generate_edge_line(edge_tts, text, voice_name, rate_str, mp3_path):
+    """Synthesize a single line with Edge-TTS and collect exact WordBoundary timestamps."""
+    communicate = edge_tts.Communicate(text, voice_name, rate=rate_str)
+    boundaries = []
+    with open(mp3_path, 'wb') as f:
+        async for chunk in communicate.stream():
+            if chunk['type'] == 'audio':
+                f.write(chunk['data'])
+            elif chunk['type'] == 'WordBoundary':
+                s = chunk['offset'] / 10_000_000.0
+                d = chunk['duration'] / 10_000_000.0
+                boundaries.append({'w': chunk['text'], 's': s, 'e': s + d})
+    return boundaries
+
+
+def read_wav_pcm(wav_path):
+    with wave.open(str(wav_path), 'rb') as wf:
+        frames = wf.readframes(wf.getnframes())
+        sr = wf.getframerate()
+    return frames, sr
+
+
+def write_wav_pcm(wav_path, pcm_bytes, sr=SR):
+    with wave.open(str(wav_path), 'wb') as wf:
+        wf.setnchannels(1)
+        wf.setsampwidth(2)  # 16-bit PCM
+        wf.setframerate(sr)
+        wf.writeframes(pcm_bytes)
+
+
+async def generate_edge_project(proj, script, voice_name):
     try:
         import edge_tts
     except ImportError:
-        import subprocess
         print("Installing lightweight edge-tts module...")
         subprocess.run([sys.executable, '-m', 'pip', 'install', '-q', 'edge-tts'], check=True)
         import edge_tts
 
-    mp3_temp = output_wav.with_suffix('.mp3')
-    communicate = edge_tts.Communicate(text, voice_name, rate=rate)
-    await communicate.save(str(mp3_temp))
+    ffmpeg = find_ffmpeg()
+    data_dir = proj / 'data'
+    data_dir.mkdir(exist_ok=True, parents=True)
 
-    # Convert to standard 24kHz mono WAV
-    import subprocess
-    cmd = ['ffmpeg', '-v', 'error', '-y', '-i', str(mp3_temp), '-ar', '24000', '-ac', '1', str(output_wav)]
-    try:
-        subprocess.run(cmd, check=True)
-    except Exception:
-        # Fallback if ffmpeg is in a custom path
-        pass
-    if mp3_temp.exists():
-        try: mp3_temp.unlink()
-        except: pass
+    speed = float(script.get('speed', 1.0))
+    pct = int(round((speed - 1.0) * 100))
+    rate_str = f"{pct:+d}%"
+
+    lead = float(script.get('lead', 0.4))
+    outro = float(script.get('outro', 0.9))
+    default_gap = float(script.get('gap', 0.28))
+
+    pcm_chunks = []
+    # Lead silence (16-bit mono = 2 bytes per sample)
+    pcm_chunks.append(b'\x00' * (int(lead * SR) * 2))
+    cursor = lead
+
+    lines_out = []
+    words_out = []
+
+    for i, ln in enumerate(script['lines']):
+        text = ln['text']
+        mp3_tmp = data_dir / f'_line_{i}.mp3'
+        wav_tmp = data_dir / f'_line_{i}.wav'
+
+        boundaries = await generate_edge_line(edge_tts, text, voice_name, rate_str, mp3_tmp)
+        subprocess.run(
+            [ffmpeg, '-v', 'error', '-y', '-i', str(mp3_tmp), '-ar', str(SR), '-ac', '1', '-sample_fmt', 's16', str(wav_tmp)],
+            check=True
+        )
+        pcm, _ = read_wav_pcm(wav_tmp)
+        dur = (len(pcm) // 2) / SR
+
+        start_t = cursor
+        end_t = cursor + dur
+        lines_out.append({'i': i, 'text': text, 'start': round(start_t, 3), 'end': round(end_t, 3)})
+
+        if boundaries:
+            for b in boundaries:
+                words_out.append({
+                    'w': b['w'],
+                    'line': i,
+                    's': round(start_t + b['s'], 3),
+                    'e': round(start_t + b['e'], 3)
+                })
+        else:
+            toks = text.split()
+            tot_len = sum(len(w) for w in toks) or 1
+            sub_t = start_t
+            for w in toks:
+                wd = (len(w) / tot_len) * dur
+                words_out.append({'w': w, 'line': i, 's': round(sub_t, 3), 'e': round(sub_t + wd * 0.92, 3)})
+                sub_t += wd
+
+        pcm_chunks.append(pcm)
+        cursor = end_t
+
+        gap = float(ln.get('gap', default_gap))
+        if i < len(script['lines']) - 1:
+            pcm_chunks.append(b'\x00' * (int(gap * SR) * 2))
+            cursor += gap
+
+        for tmp in (mp3_tmp, wav_tmp):
+            try:
+                tmp.unlink()
+            except Exception:
+                pass
+
+    # Outro silence
+    pcm_chunks.append(b'\x00' * (int(outro * SR) * 2))
+    total_dur = cursor + outro
+
+    wav_out = data_dir / 'narration.wav'
+    write_wav_pcm(wav_out, b''.join(pcm_chunks), SR)
+
+    (data_dir / 'lines.json').write_text(json.dumps({'duration': round(total_dur, 3), 'lines': lines_out}, indent=2))
+    (data_dir / 'words.json').write_text(json.dumps(words_out, indent=2))
+    print(f"Edge-TTS narration complete: {len(lines_out)} lines, {len(words_out)} synced words, {total_dur:.2f}s -> {wav_out}")
 
 
 def estimate_fallback(project_dir, script):
@@ -108,7 +215,6 @@ def estimate_fallback(project_dir, script):
         text = ln['text']
         toks = text.split()
         tok_len = sum(len(w) for w in toks) or 1
-        # Approx 2.7 words per second
         dur = (len(toks) / (2.7 * speed)) + (0.3 if ',' in text else 0.5)
         start = t
         end = t + dur
@@ -161,39 +267,27 @@ def main():
     script = json.loads(script_file.read_text(encoding='utf-8'))
     voice = script.get('voice', 'en-US-GuyNeural')
 
-    # If user selected no voiceover or requested estimate
     if script.get('voiceover') is False or args.estimate:
         print("Voiceover disabled. Estimating kinetic timings...")
         estimate_fallback(proj, script)
         return
 
-    # Check if voice is Edge-TTS or Kokoro
     is_edge = voice.startswith('en-') or voice.endswith('Neural') or VOICES_PRESET.get(voice, {}).get('engine') == 'edge'
 
     if is_edge:
         print(f"Generating voiceover using Edge-TTS Neural Voice: {voice}...")
         try:
-            full_text = " ... ".join([ln['text'] for ln in script['lines']])
-            data_dir = proj / 'data'
-            data_dir.mkdir(exist_ok=True, parents=True)
-            wav_out = data_dir / 'narration.wav'
-            asyncio.run(generate_edge_tts(full_text, voice, wav_out))
-            estimate_fallback(proj, script)
-            print(f"Audio written to: {wav_out}")
+            asyncio.run(generate_edge_project(proj, script, voice))
             return
         except Exception as e:
             print(f"Edge-TTS audio generation failed ({e}). Falling back to timing calculation...")
             estimate_fallback(proj, script)
             return
 
-    # Otherwise Kokoro
     try:
-        import numpy as np
-        import scipy.io.wavfile
         from kokoro_onnx import Kokoro
         ensure_kokoro_models()
         print(f"Generating voiceover using local Kokoro voice: {voice}...")
-        # Kokoro execution logic...
         estimate_fallback(proj, script)
     except Exception as e:
         print(f"Kokoro not loaded ({e}). Falling back to mathematical timing...")
