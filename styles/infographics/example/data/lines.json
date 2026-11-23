@@ -1,0 +1,30 @@
+{
+ "duration": 16.546,
+ "estimated": true,
+ "lines": [
+  {
+   "i": 0,
+   "text": "Over four billion people consume short video content every single day.",
+   "start": 0.4,
+   "end": 4.141
+  },
+  {
+   "i": 1,
+   "text": "Motion graphics increase viewer retention by up to ninety-four percent.",
+   "start": 4.441,
+   "end": 7.843
+  },
+  {
+   "i": 2,
+   "text": "Audiences remember animated statistics six times better than static text.",
+   "start": 8.143,
+   "end": 11.544
+  },
+  {
+   "i": 3,
+   "text": "And with scenesin, generating this full video costs literally zero dollars.",
+   "start": 11.844,
+   "end": 15.746
+  }
+ ]
+}

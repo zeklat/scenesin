@@ -1,0 +1,30 @@
+{
+  "title": "Building Next-Gen Video Tools with Code",
+  "style": "tech-explainer",
+  "format": "16:9",
+  "voice": "en-US-GuyNeural",
+  "speed": 1.05,
+  "lead": 0.4,
+  "outro": 0.8,
+  "gap": 0.3,
+  "sfx": true,
+  "music": "bed",
+  "lines": [
+    {
+      "text": "Writing code is no longer just for building web servers.",
+      "caps": "WRITING *CODE | BEYOND *SERVERS"
+    },
+    {
+      "text": "With modern toolchains, your code compiles directly into motion graphics.",
+      "caps": "COMPILES *DIRECTLY | INTO *MOTION"
+    },
+    {
+      "text": "Distributed nodes stream state changes into frame-perfect renders.",
+      "caps": "DISTRIBUTED *NODES | *FRAME-PERFECT"
+    },
+    {
+      "text": "Deploy your next explainer video in seconds with scenesin.",
+      "caps": "DEPLOY IN *SECONDS | WITH *SCENESIN"
+    }
+  ]
+}

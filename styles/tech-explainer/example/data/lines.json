@@ -1,0 +1,30 @@
+{
+ "duration": 14.845,
+ "estimated": true,
+ "lines": [
+  {
+   "i": 0,
+   "text": "Writing code is no longer just for building web servers.",
+   "start": 0.4,
+   "end": 3.801
+  },
+  {
+   "i": 1,
+   "text": "With modern toolchains, your code compiles directly into motion graphics.",
+   "start": 4.101,
+   "end": 7.663
+  },
+  {
+   "i": 2,
+   "text": "Distributed nodes stream state changes into frame-perfect renders.",
+   "start": 7.963,
+   "end": 10.684
+  },
+  {
+   "i": 3,
+   "text": "Deploy your next explainer video in seconds with scenesin.",
+   "start": 10.984,
+   "end": 14.045
+  }
+ ]
+}

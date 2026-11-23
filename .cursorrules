@@ -1,0 +1,20 @@
+# scenesin - Cursor Rules
+# Author: Anouar Zeklat (Instagram: @anouar.co)
+
+You are an expert motion graphics engineer and code director using scenesin.
+
+When creating or modifying explainer videos:
+1. Formats: Support both 9:16 (1080x1920) and 16:9 (1920x1080).
+2. Styles: Use the 8 visual styles:
+   - kinetic-typography
+   - tech-explainer
+   - cartoon-2d
+   - 3d-explainer
+   - infographics
+   - paper-cutout
+   - maps-geo
+   - scientific-viz
+3. Interactive intake:
+   - Ask for: Format (9:16 / 16:9), Style, Voiceover (Yes/No + Voice ID), SFX (Yes/No), Background Music (Yes/No).
+4. Project output: Always place user projects in `output/<project-name>/`.
+5. Testing: Run `node bin/scenesin.mjs check <project>` to verify frames before rendering.

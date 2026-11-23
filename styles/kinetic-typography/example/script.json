@@ -1,0 +1,38 @@
+{
+  "title": "Why Most Software Projects Fail",
+  "style": "kinetic-typography",
+  "format": "9:16",
+  "voice": "en-US-GuyNeural",
+  "speed": 1.05,
+  "lead": 0.4,
+  "outro": 0.8,
+  "gap": 0.3,
+  "sfx": true,
+  "music": "bed",
+  "lines": [
+    {
+      "text": "Why do most ambitious software projects fail before launch?",
+      "caps": "WHY DO *APPS | *FAIL TO *LAUNCH?"
+    },
+    {
+      "text": "They start with incredible excitement, vision, and hype,",
+      "caps": "EXCITEMENT *VISION | AND *PURE *HYPE"
+    },
+    {
+      "text": "but eighty-four percent end up drowning in hidden technical debt.",
+      "caps": "84% *DROWN IN | *HIDDEN *DEBT"
+    },
+    {
+      "text": "The golden rule is simple: ship small and iterate fast,",
+      "caps": "SHIP *SMALL | *ITERATE *FAST"
+    },
+    {
+      "text": "getting ten times faster feedback from real users.",
+      "caps": "10X *FASTER | *FEEDBACK *LOOPS"
+    },
+    {
+      "text": "Master this single mindset, and you become unstoppable.",
+      "caps": "MASTER *THIS | BE *UNSTOPPABLE"
+    }
+  ]
+}

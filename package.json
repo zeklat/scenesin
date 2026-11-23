@@ -1,0 +1,42 @@
+{
+  "name": "scenesin",
+  "version": "1.0.0",
+  "description": "Create stunning motion graphic explainer videos from code, script, and prompt across 8 visual styles in 9:16 and 16:9 formats.",
+  "type": "module",
+  "bin": {
+    "scenesin": "./bin/scenesin.mjs"
+  },
+  "main": "./bin/scenesin.mjs",
+  "scripts": {
+    "start": "node ./bin/scenesin.mjs",
+    "create": "node ./bin/scenesin.mjs create",
+    "test": "node ./bin/scenesin.mjs check"
+  },
+  "keywords": [
+    "video-generation",
+    "motion-graphics",
+    "code-to-video",
+    "explainer-videos",
+    "kinetic-typography",
+    "threejs",
+    "canvas-animation",
+    "shorts",
+    "reels",
+    "youtube",
+    "antigravity",
+    "claude-code",
+    "cursor"
+  ],
+  "author": {
+    "name": "Anouar Zeklat",
+    "url": "https://instagram.com/anouar.co"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "ws": "^8.23.0"
+  }
+}

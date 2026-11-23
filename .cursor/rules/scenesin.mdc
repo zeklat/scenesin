@@ -1,0 +1,12 @@
+---
+description: scenesin code video generator rules
+globs: **/*
+alwaysApply: true
+---
+# scenesin Video Generator Rules
+Created by Anouar Zeklat (Instagram: @anouar.co)
+
+- Always create videos inside `output/<project-name>/`.
+- Support 9:16 and 16:9 formats.
+- Respect the 8 visual styles.
+- Verify shot timings with `node bin/scenesin.mjs check <project>`.

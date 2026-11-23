@@ -1,0 +1,30 @@
+{
+  "title": "The Power of Visual Content",
+  "style": "infographics",
+  "format": "9:16",
+  "voice": "en-US-GuyNeural",
+  "speed": 1.05,
+  "lead": 0.4,
+  "outro": 0.8,
+  "gap": 0.3,
+  "sfx": true,
+  "music": "bed",
+  "lines": [
+    {
+      "text": "Over four billion people consume short video content every single day.",
+      "caps": "OVER *4 *BILLION | *DAILY *VIEWERS"
+    },
+    {
+      "text": "Motion graphics increase viewer retention by up to ninety-four percent.",
+      "caps": "RETENTION *SPIKES | BY *94 *PERCENT"
+    },
+    {
+      "text": "Audiences remember animated statistics six times better than static text.",
+      "caps": "REMEMBER *DATA | *6X *BETTER"
+    },
+    {
+      "text": "And with scenesin, generating this full video costs literally zero dollars.",
+      "caps": "PRODUCTION *COST | LITERALLY *ZERO"
+    }
+  ]
+}

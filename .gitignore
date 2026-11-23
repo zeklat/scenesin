@@ -1,0 +1,50 @@
+# Scenesin - Explainer Videos from Code
+# Author: Anouar Zeklat (Instagram: @anouar.co)
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.venv
+.faceless-shorts/
+.scenesin/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Large model downloads (never commit weights to GitHub)
+*.onnx
+*.bin
+*.pt
+*.safetensors
+kokoro/
+whisper/
+
+# User outputs & renders (output starts clean with .gitkeep)
+output/*
+!output/.gitkeep
+renders/
+review/
+data/narration.wav
+data/mix.wav
+data/words.json
+data/lines.json
+data/cues.json
+*.mp4
+*.mov
+*.wav
+*.part

@@ -1,0 +1,30 @@
+{
+  "title": "The Global Connection Network",
+  "style": "maps-geo",
+  "format": "16:9",
+  "voice": "en-US-GuyNeural",
+  "speed": 1.05,
+  "lead": 0.4,
+  "outro": 0.8,
+  "gap": 0.3,
+  "sfx": true,
+  "music": "bed",
+  "lines": [
+    {
+      "text": "How does information travel halfway across the planet in milliseconds?",
+      "caps": "ACROSS *THE *PLANET | IN *MILLISECONDS"
+    },
+    {
+      "text": "It starts in major financial hubs like New York and London,",
+      "caps": "NEW *YORK | TO *LONDON"
+    },
+    {
+      "text": "crossing undersea cables through Tokyo and across Asia,",
+      "caps": "UNDERSEA *CABLES | TO *TOKYO"
+    },
+    {
+      "text": "forming a resilient global web that keeps the world synchronized.",
+      "caps": "GLOBAL *WEB | ALWAYS *CONNECTED"
+    }
+  ]
+}

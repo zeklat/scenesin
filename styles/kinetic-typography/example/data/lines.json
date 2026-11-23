@@ -1,0 +1,42 @@
+{
+ "duration": 21.527,
+ "estimated": true,
+ "lines": [
+  {
+   "i": 0,
+   "text": "Why do most ambitious software projects fail before launch?",
+   "start": 0.4,
+   "end": 3.461
+  },
+  {
+   "i": 1,
+   "text": "They start with incredible excitement, vision, and hype,",
+   "start": 3.761,
+   "end": 6.962
+  },
+  {
+   "i": 2,
+   "text": "but eighty-four percent end up drowning in hidden technical debt.",
+   "start": 7.262,
+   "end": 10.664
+  },
+  {
+   "i": 3,
+   "text": "The golden rule is simple: ship small and iterate fast,",
+   "start": 10.964,
+   "end": 14.525
+  },
+  {
+   "i": 4,
+   "text": "getting ten times faster feedback from real users.",
+   "start": 14.825,
+   "end": 17.546
+  },
+  {
+   "i": 5,
+   "text": "Master this single mindset, and you become unstoppable.",
+   "start": 17.846,
+   "end": 20.727
+  }
+ ]
+}
