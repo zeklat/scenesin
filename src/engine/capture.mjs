@@ -8,10 +8,22 @@ import http from 'node:http';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { findBrowser } from './browser.mjs';
 import { findFFmpeg } from './ffmpeg.mjs';
 
 const WS = globalThis.WebSocket || (await import('ws')).default;
+const ENGINE_REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+const NODE_MODULES_ROOT = path.join(ENGINE_REPO_ROOT, 'node_modules');
+
+const VENDOR_ALIASES = {
+  '/vendor/gsap.js': 'gsap/index.js',
+  '/vendor/gsap-all.js': 'gsap/all.js',
+  '/vendor/rough.js': 'roughjs/bundled/rough.esm.js',
+  '/vendor/anime.js': 'animejs/dist/bundles/anime.esm.min.js',
+  '/vendor/mojs.js': '@mojs/core/dist/mo.umd.js',
+  '/vendor/three.js': 'three/build/three.module.js'
+};
 
 const MIME = {
   '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript',
@@ -51,8 +63,21 @@ export async function runCapture(projectRoot, args = []) {
     return new Promise((res) => {
       const srv = http.createServer((req, r) => {
         const u = decodeURIComponent(req.url.split('?')[0]);
-        const f = path.join(ROOT, u === '/' ? 'index.html' : u);
-        if (!f.startsWith(ROOT) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) {
+        let f = null;
+
+        // 1. Built-in shared motion libraries (/vendor/* and /node_modules/*)
+        if (VENDOR_ALIASES[u]) {
+          f = path.join(NODE_MODULES_ROOT, VENDOR_ALIASES[u]);
+        } else if (u.startsWith('/node_modules/')) {
+          const candidate = path.join(NODE_MODULES_ROOT, u.slice('/node_modules/'.length));
+          if (candidate.startsWith(NODE_MODULES_ROOT)) f = candidate;
+        } else {
+          // 2. Project local files
+          const candidate = path.join(ROOT, u === '/' ? 'index.html' : u);
+          if (candidate.startsWith(ROOT)) f = candidate;
+        }
+
+        if (!f || !fs.existsSync(f) || fs.statSync(f).isDirectory()) {
           r.writeHead(404); r.end(); return;
         }
         r.writeHead(200, {

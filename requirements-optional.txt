@@ -1,0 +1,16 @@
+# scenesin - Optional Python Power-Ups
+# Install only what you need (keeps the GitHub repo 100% lightweight, zero 1GB bloat!)
+# Author: Anouar Zeklat (@anouar.co | https://www.youtube.com/@anouarzeklat)
+
+# Instant Neural Voiceover (0 MB model download, recommended)
+edge-tts>=6.1.0
+
+# Optional: Offline Local Neural Voice (~340 MB model downloaded on first use)
+# kokoro-onnx>=0.4.0
+
+# Optional: 3Blue1Brown-style Mathematical & Scientific Animations (MIT)
+# manim>=0.18.0
+
+# Optional: Forced Phoneme-Level Word Alignment (BSD-4)
+# whisperx>=3.1.1
+# faster-whisper>=1.0.0

@@ -156,7 +156,7 @@ function copyProjectTemplate(styleId, targetDir, config) {
   if (fs.existsSync(scriptPath)) {
     try {
       script = JSON.parse(fs.readFileSync(scriptPath, 'utf8'));
-    } catch {}
+    } catch { }
   }
 
   script.format = config.format;

@@ -3,6 +3,16 @@ Author: Anouar Zeklat (Instagram: @anouar.co | YouTube: https://www.youtube.com/
 
 `scenesin` is an open-source tool that creates motion graphic explainer videos from code and scripts in 9:16 and 16:9 formats across 8 visual styles.
 
+## Built-In Free Motion Libraries
+Available automatically inside any project via `/vendor/*` and `/node_modules/*`:
+- `GSAP` (`/node_modules/gsap/index.js` + SplitText, MorphSVG, DrawSVG, MotionPath)
+- `Anime.js` (`/vendor/anime.js`)
+- `Rough.js` (`/vendor/rough.js` — hand-drawn sketchy canvas/SVG)
+- `Mo.js` (`/vendor/mojs.js` — bursts, swirls, particle pops)
+- `Three.js` (`/vendor/three.js` — 3D WebGL)
+- `Manim` (`python scripts/manim_bridge.py` — optional `pip install manim`)
+- `WhisperX` (optional forced alignment in `requirements-optional.txt`)
+
 ## Primary Commands
 - Run interactive wizard: `node bin/scenesin.mjs create` or `python scenesin.py create`
 - Preview in browser: `node bin/scenesin.mjs preview <project-folder>`

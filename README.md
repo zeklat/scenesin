@@ -21,6 +21,23 @@ Works universally with **Antigravity**, **Claude Code**, **Cursor**, or standalo
 
 ---
 
+## 🛠️ Built-In Motion & Rendering Stack (100% Free & Open-Source)
+
+Every project rendered with `scenesin` has instant access to studio-grade motion libraries served directly by the engine:
+
+| Library | Role in `scenesin` | Access |
+|---|---|---|
+| **GSAP** | Studio timelines, `SplitText`, `MorphSVG`, `DrawSVG`, `ScrambleText`, elastic springs | `/node_modules/gsap/index.js` |
+| **Anime.js** | Smooth spring physics, staggered kinetic reveals, SVG path morphing | `/vendor/anime.js` |
+| **Rough.js** | Hand-drawn whiteboard, sketchy illustrations, editorial paper-cutout lines | `/vendor/rough.js` |
+| **Mo.js** | Explosive bursts, shape swirls, kinetic particle pops on cuts | `/vendor/mojs.js` |
+| **Three.js** | Full 3D WebGL environments, glowing anatomical/scientific meshes, camera sweeps | `/vendor/three.js` |
+| **FFmpeg** | Bundled H.264 MP4 + AAC audio encoding (zero manual PATH setup) | Built-in (`@ffmpeg-installer/ffmpeg`) |
+| **Manim** *(optional)* | 3Blue1Brown-style math & scientific animations (`pip install manim`) | `python scripts/manim_bridge.py` |
+| **Edge-TTS / Kokoro / WhisperX** | Free neural voiceover + word-level / phoneme-level timestamp sync | `scripts/voice.py` & `requirements-optional.txt` |
+
+---
+
 ## 📐 2 Adaptive Formats
 
 | Format | Dimensions | Best For |

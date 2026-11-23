@@ -10,7 +10,17 @@ description: Create viral motion graphic explainer videos from code and scripts 
 
 Create finished motion graphic explainer videos completely in code on your computer: script, voiceover narration, word-level synchronized typography, procedural animation, sound effects, and music, rendered to crisp MP4.
 
-**Everything is code**: HTML Canvas / SVG, Chromium headless rendering, Three.js 3D meshes, procedural audio synthesis, and FFmpeg multiplexing. No paid AI video APIs, no subscription fees, no credit limits.
+**Everything is code**: HTML Canvas / SVG, Chromium headless rendering, **GSAP**, **Anime.js**, **Rough.js**, **Mo.js**, **Three.js**, **Manim** (optional), procedural audio synthesis, and **FFmpeg** multiplexing. No paid AI video APIs, no subscription fees, no credit limits.
+
+### Built-In Free Motion Libraries (Available in Every Project)
+The `scenesin` engine automatically serves installed libraries at `/vendor/*` and `/node_modules/*`:
+- **GSAP** (`import { gsap } from '/node_modules/gsap/index.js'` — plus `SplitText`, `MorphSVGPlugin`, `DrawSVGPlugin`, `MotionPathPlugin`, `ScrambleTextPlugin`)
+- **Anime.js** (`import * as anime from '/vendor/anime.js'` — springs, staggers, SVG morphing)
+- **Rough.js** (`import rough from '/vendor/rough.js'` — hand-drawn sketchy/whiteboard Canvas & SVG)
+- **Mo.js** (`<script src="/vendor/mojs.js"></script>` — kinetic bursts, swirls, particle explosions)
+- **Three.js** (`import * as THREE from '/vendor/three.js'` — 3D WebGL meshes & cameras)
+- **Manim Bridge** (`python scripts/manim_bridge.py <file.py> <Scene> --format 9:16` — 3Blue1Brown math/science animations, optional `pip install manim`)
+- **WhisperX / Faster-Whisper** (optional forced phoneme alignment via `requirements-optional.txt`)
 
 ---
 
