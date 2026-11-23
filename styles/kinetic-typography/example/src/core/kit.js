@@ -103,3 +103,4 @@ export function floatingBadge({ text, x, y, angle = -0.08, color = C.secondary, 
   drawPill(text, 0, 0, color, 'rgba(255, 0, 85, 0.2)');
   ctx.restore();
 }
+

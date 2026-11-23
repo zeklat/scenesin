@@ -18,3 +18,4 @@ High-energy, typography-driven explainer videos. Bold title cards, animated spri
 - `K.floatingBadge({ text, x, y, angle, color, t })`: Dynamic floating pill tag.
 - `K.progressBar(t, dur)`: Top progress bar indicating video progression.
 - `K.gridBackground(t)`: Subtle moving background grid.
+

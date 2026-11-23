@@ -1,5 +1,5 @@
 # CLAUDE.md for scenesin
-Author: Anouar Zeklat (Instagram: @anouar.co)
+Author: Anouar Zeklat (Instagram: @anouar.co | YouTube: https://www.youtube.com/@anouarzeklat)
 
 `scenesin` is an open-source tool that creates motion graphic explainer videos from code and scripts in 9:16 and 16:9 formats across 8 visual styles.
 
@@ -29,3 +29,4 @@ When a user asks to make a video:
    - Background Music: Yes/No
 2. Projects are created in `output/<project-name>/` (which starts empty with `.gitkeep`).
 3. Never force massive 1GB model downloads; use `estimate.py` or Edge-TTS by default.
+

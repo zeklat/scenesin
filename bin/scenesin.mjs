@@ -45,7 +45,7 @@ function banner() {
   console.log(`
 ╔══════════════════════════════════════════════════════════════════╗
 ║   🎬 SCENESIN - Explainer Videos from Code & Scripts             ║
-║   Created by Anouar Zeklat (Instagram: @anouar.co)               ║
+║   Created by Anouar Zeklat (@anouar.co | youtube/@anouarzeklat)  ║
 ║   8 Visual Styles • 9:16 & 16:9 • 0 Dropped Frames               ║
 ╚══════════════════════════════════════════════════════════════════╝
 `);
@@ -233,3 +233,4 @@ main().catch((err) => {
   console.error('\n❌ scenesin error:', err.message || err);
   process.exit(1);
 });
+

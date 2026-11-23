@@ -16,3 +16,4 @@ Developer-first, sleek tech explainer style featuring dark-mode code editors, an
 - `K.codeEditor({ x, y, w, h, title, code, activeLine, t })`: Realistic editor with macOS traffic lights and syntax tokens.
 - `K.terminal({ x, y, w, h, title, lines, t })`: Command prompt with commands, outputs, and checkmarks.
 - `K.apiArchitectureDiagram({ x, y, w, h, t })`: Dynamic node graph with pulsating data packets.
+

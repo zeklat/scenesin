@@ -56,3 +56,4 @@ export async function findFFmpeg() {
   cachedFfmpeg = 'ffmpeg';
   return cachedFfmpeg;
 }
+

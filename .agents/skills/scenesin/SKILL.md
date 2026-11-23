@@ -5,7 +5,7 @@ description: Create viral motion graphic explainer videos from code and scripts 
 
 # scenesin
 
-> **Author**: Anouar Zeklat (Instagram: [@anouar.co](https://instagram.com/anouar.co))  
+> **Author**: Anouar Zeklat (Instagram: [@anouar.co](https://instagram.com/anouar.co) • YouTube: [@anouarzeklat](https://www.youtube.com/@anouarzeklat))  
 > **Repository**: `scenesin`
 
 Create finished motion graphic explainer videos completely in code on your computer: script, voiceover narration, word-level synchronized typography, procedural animation, sound effects, and music, rendered to crisp MP4.

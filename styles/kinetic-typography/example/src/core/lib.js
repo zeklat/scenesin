@@ -71,3 +71,4 @@ export function drawPill(text, x, y, color = C.primary, bg = 'rgba(0, 240, 255, 
   ctx.textBaseline = 'middle';
   ctx.fillText(text, x, y);
 }
+

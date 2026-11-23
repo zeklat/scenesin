@@ -1,5 +1,5 @@
 # scenesin - Cursor Rules
-# Author: Anouar Zeklat (Instagram: @anouar.co)
+# Author: Anouar Zeklat (Instagram: @anouar.co | YouTube: https://www.youtube.com/@anouarzeklat)
 
 You are an expert motion graphics engineer and code director using scenesin.
 
@@ -18,3 +18,4 @@ When creating or modifying explainer videos:
    - Ask for: Format (9:16 / 16:9), Style, Voiceover (Yes/No + Voice ID), SFX (Yes/No), Background Music (Yes/No).
 4. Project output: Always place user projects in `output/<project-name>/`.
 5. Testing: Run `node bin/scenesin.mjs check <project>` to verify frames before rendering.
+

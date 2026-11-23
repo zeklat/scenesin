@@ -15,3 +15,4 @@ Cinematic, geographic visual storytelling featuring vector map projections, glow
 - `K.geoMapBackground(t)`: Vector map grid and continental basemaps.
 - `K.locationPin({ x, y, label, sub, color, t })`: Pulsating GPS radar pin and coordinate tag.
 - `K.flightRoute({ from, to, t, d, color })`: Smooth animated flight arc.
+

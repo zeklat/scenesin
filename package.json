@@ -29,8 +29,9 @@
   ],
   "author": {
     "name": "Anouar Zeklat",
-    "url": "https://instagram.com/anouar.co"
+    "url": "https://www.youtube.com/@anouarzeklat"
   },
+  "homepage": "https://www.youtube.com/@anouarzeklat",
   "license": "MIT",
   "engines": {
     "node": ">=18.0.0"

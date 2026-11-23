@@ -10,3 +10,4 @@ Created by Anouar Zeklat (Instagram: @anouar.co)
 - Support 9:16 and 16:9 formats.
 - Respect the 8 visual styles.
 - Verify shot timings with `node bin/scenesin.mjs check <project>`.
+

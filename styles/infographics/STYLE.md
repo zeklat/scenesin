@@ -15,3 +15,4 @@ Data-driven visual storytelling featuring animated bar charts, circular percenta
 - `K.kpiCard({ x, y, w, h, title, value, change, isPositive, t })`: Clean metric card with percentage delta badges.
 - `K.barChart({ x, y, w, h, title, items, t, d })`: Multi-series animated rising bar graph with auto-scaled columns.
 - `K.donutChart({ x, y, r, percent, label, color, t, d })`: Circular percentage fill gauge with glowing rim.
+

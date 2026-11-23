@@ -134,3 +134,4 @@ export function donutChart({ x, y, r, percent = 75, label = 'Efficiency', color 
 
   ctx.restore();
 }
+
