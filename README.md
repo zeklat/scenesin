@@ -2,13 +2,14 @@
 
 > **Create viral motion graphic explainer videos from code and scripts.**  
 > **100% in code on your computer. $0 cost. No API keys. 0 dropped frames.**  
-> **Created by Anouar Zeklat** • Instagram: [@anouar.co](https://instagram.com/anouar.co) • YouTube: [@anouarzeklat](https://www.youtube.com/@anouarzeklat)
+> **Created by Anouar Zeklat** • Instagram: [@anouar.co](https://instagram.com/anouar.co) • YouTube: [@anouarzeklat](https://www.youtube.com/@anouarzeklat) • X: [@anouarzeklat](https://x.com/anouarzeklat)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node: >=18](https://img.shields.io/badge/Node-%3E%3D18-green.svg)](https://nodejs.org/)
 [![Python: 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://python.org)
 [![Instagram](https://img.shields.io/badge/Instagram-@anouar.co-E4405F?logo=instagram&logoColor=white)](https://instagram.com/anouar.co)
 [![YouTube](https://img.shields.io/badge/YouTube-@anouarzeklat-FF0000?logo=youtube&logoColor=white)](https://www.youtube.com/@anouarzeklat)
+[![X](https://img.shields.io/badge/X-@anouarzeklat-000000?logo=x&logoColor=white)](https://x.com/anouarzeklat)
 
 ---
 
@@ -171,4 +172,5 @@ scenesin/
 Built with ❤️ by **Anouar Zeklat**  
 Instagram: [@anouar.co](https://instagram.com/anouar.co)  
 YouTube: [@anouarzeklat](https://www.youtube.com/@anouarzeklat)  
+X: [@anouarzeklat](https://x.com/anouarzeklat)  
 Feel free to open an issue, submit a pull request, or tag **@anouar.co** in videos you create!
