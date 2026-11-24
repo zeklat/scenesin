@@ -141,7 +141,7 @@ def main():
                 cache[ctype] = fn()
             buf = cache[ctype]
             gain = float(c.get('gain', 0.5)) * 0.65
-            start_idx = max(0, int(float(c.get('at', 0.0)) * SR))
+            start_idx = max(0, int(float(c.get('at', c.get('t', 0.0))) * SR))
             end_idx = min(total_samples, start_idx + len(buf))
             for i in range(start_idx, end_idx):
                 mix[i] += buf[i - start_idx] * gain
