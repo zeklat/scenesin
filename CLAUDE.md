@@ -3,8 +3,10 @@ Author: Anouar Zeklat (Instagram: @anouar.co | YouTube: https://www.youtube.com/
 
 `scenesin` is an open-source tool that creates motion graphic explainer videos from code and scripts in 9:16 and 16:9 formats across 8 visual styles.
 
-## Built-In Free Motion Libraries
+## Built-In Free Motion & Online Media Engine (v2.0)
 Available automatically inside any project via `/vendor/*` and `/node_modules/*`:
+- `Cinema Kit` (`/vendor/cinema.js` — laptop website viewer, Vox highlighter, mouse cursor, Ken Burns photo cards, brand logo badges, whip-pan transitions, film grain & vignette)
+- `Online Media CLI`: `scenesin snap <url>`, `scenesin logo <company>`, `scenesin photo "<person or topic>"` (when a website/company/person is mentioned in a script, fetch and animate it!)
 - `GSAP` (`/node_modules/gsap/index.js` + SplitText, MorphSVG, DrawSVG, MotionPath)
 - `Anime.js` (`/vendor/anime.js`)
 - `Rough.js` (`/vendor/rough.js` — hand-drawn sketchy canvas/SVG)

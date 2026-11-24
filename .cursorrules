@@ -14,8 +14,11 @@ When creating or modifying explainer videos:
    - paper-cutout
    - maps-geo
    - scientific-viz
-3. Interactive intake:
-   - Ask for: Format (9:16 / 16:9), Style, Voiceover (Yes/No + Voice ID), SFX (Yes/No), Background Music (Yes/No).
+3. Creative Director Intake:
+   - Ask for: Format (9:16 / 16:9), Style (incl. stick-story & auto-mix), Color Theme, Online Media Assets (live websites, logos, real photos), Characters (Stickman / 2D / None), Cinematic FX (grain, vignette, cursor, whip-pans), Voiceover (7 curated voices or custom), SFX, and Background Music.
+   - When a script mentions a website, snap it via `node bin/scenesin.mjs snap <url>` and show it on a laptop screen (`Cinema.drawLaptopWebsite`).
+   - When a company is mentioned, fetch its SVG logo via `node bin/scenesin.mjs logo <brand>`.
+   - When a famous person or topic is mentioned, fetch a photo via `node bin/scenesin.mjs photo "<query>"` and animate with Ken Burns zoom (`Cinema.drawPhotoCard`).
 4. Project output: Always place user projects in `output/<project-name>/`.
 5. Testing: Run `node bin/scenesin.mjs check <project>` to verify frames before rendering.
 

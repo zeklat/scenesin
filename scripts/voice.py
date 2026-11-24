@@ -23,16 +23,20 @@ import wave
 from pathlib import Path
 
 VOICES_PRESET = {
-    'am_michael': {'name': 'Michael (US Male)', 'engine': 'kokoro', 'desc': 'Steady, authoritative explainer'},
-    'af_heart': {'name': 'Heart (US Female)', 'engine': 'kokoro', 'desc': 'Warm, natural storytelling'},
-    'am_puck': {'name': 'Puck (US Male)', 'engine': 'kokoro', 'desc': 'Playful, lively, upbeat'},
-    'bm_george': {'name': 'George (UK Male)', 'engine': 'kokoro', 'desc': 'Classic British documentary narrator'},
-    'bf_emma': {'name': 'Emma (UK Female)', 'engine': 'kokoro', 'desc': 'Calm, clear educational guide'},
-    'en-US-GuyNeural': {'name': 'Guy (US Male Neural)', 'engine': 'edge', 'desc': 'Deep, confident, engaging'},
-    'en-US-JennyNeural': {'name': 'Jenny (US Female Neural)', 'engine': 'edge', 'desc': 'Clear, professional, modern tech'},
-    'en-US-AriaNeural': {'name': 'Aria (US Female Neural)', 'engine': 'edge', 'desc': 'Expressive, versatile, dynamic'},
-    'en-GB-RyanNeural': {'name': 'Ryan (UK Male Neural)', 'engine': 'edge', 'desc': 'Sharp, polished UK voice'},
-    'en-GB-SoniaNeural': {'name': 'Sonia (UK Female Neural)', 'engine': 'edge', 'desc': 'Crisp, articulate British accent'}
+    # Curated 7 Cinematic Neural Voices (Instant Edge-TTS, 0 MB model download)
+    'en-US-AndrewMultilingualNeural': {'name': 'Andrew (Confident YouTube)', 'engine': 'edge', 'desc': 'Warm, natural storyteller — best for YouTube 16:9'},
+    'en-US-SteffanNeural': {'name': 'Steffan (Enthusiastic Shorts)', 'engine': 'edge', 'desc': 'High-energy, punchy — best for Reels/TikTok/Shorts'},
+    'en-US-BrianMultilingualNeural': {'name': 'Brian ("What If" Narrator)', 'engine': 'edge', 'desc': 'Curious, captivating — classic "What happens if...?" vibe'},
+    'en-US-ChristopherNeural': {'name': 'Christopher (Deep Documentary)', 'engine': 'edge', 'desc': 'Rich, authoritative — history, maps & cinema'},
+    'en-US-AvaMultilingualNeural': {'name': 'Ava (Expressive Female)', 'engine': 'edge', 'desc': 'Natural, warm, conversational storytelling'},
+    'en-GB-RyanNeural': {'name': 'Ryan (British Tech / Science)', 'engine': 'edge', 'desc': 'Sharp, polished UK narrator'},
+    'ar-MA-JamalNeural': {'name': 'Jamal (Arabic Neural)', 'engine': 'edge', 'desc': 'Crisp Arabic narration (plus 300+ more via --list-all)'},
+
+    # Local Kokoro-82M Offline Voices (ONNX, optional)
+    'am_michael': {'name': 'Michael (Kokoro US Male)', 'engine': 'kokoro', 'desc': 'Steady offline explainer'},
+    'af_heart': {'name': 'Heart (Kokoro US Female)', 'engine': 'kokoro', 'desc': 'Warm offline storytelling'},
+    'am_puck': {'name': 'Puck (Kokoro Playful)', 'engine': 'kokoro', 'desc': 'Playful offline voice'},
+    'bm_george': {'name': 'George (Kokoro UK Male)', 'engine': 'kokoro', 'desc': 'British offline documentary'}
 }
 
 HOME = Path(os.environ.get('SCENESIN_HOME', Path.home() / '.scenesin'))

@@ -24,6 +24,9 @@ const VENDOR_ALIASES = {
   '/vendor/mojs.js': '@mojs/core/dist/mo.umd.js',
   '/vendor/three.js': 'three/build/three.module.js'
 };
+const ENGINE_ALIASES = {
+  '/vendor/cinema.js': path.join(ENGINE_REPO_ROOT, 'src/engine/cinema.mjs')
+};
 
 const MIME = {
   '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript',
@@ -66,7 +69,9 @@ export async function runCapture(projectRoot, args = []) {
         let f = null;
 
         // 1. Built-in shared motion libraries (/vendor/* and /node_modules/*)
-        if (VENDOR_ALIASES[u]) {
+        if (ENGINE_ALIASES[u]) {
+          f = ENGINE_ALIASES[u];
+        } else if (VENDOR_ALIASES[u]) {
           f = path.join(NODE_MODULES_ROOT, VENDOR_ALIASES[u]);
         } else if (u.startsWith('/node_modules/')) {
           const candidate = path.join(NODE_MODULES_ROOT, u.slice('/node_modules/'.length));

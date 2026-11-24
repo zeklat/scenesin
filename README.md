@@ -1,7 +1,7 @@
-# 🎬 scenesin
+# 🎬 scenesin v2.0
 
-> **Create viral motion graphic explainer videos from code and scripts.**  
-> **100% in code on your computer. $0 cost. No API keys. 0 dropped frames.**  
+> **Create cinematic motion graphic explainer videos from code, scripts, live websites, brand logos & real photos.**  
+> **100% in code on your computer. \$0 cost. No API keys. 0 dropped frames.**  
 > **Created by Anouar Zeklat** • Instagram: [@anouar.co](https://instagram.com/anouar.co) • YouTube: [@anouarzeklat](https://www.youtube.com/@anouarzeklat) • X: [@anouarzeklat](https://x.com/anouarzeklat)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -13,29 +13,40 @@
 
 ---
 
-## 🌟 Why scenesin?
+## 🌟 Why scenesin v2.0?
 
-Most AI video tools cost \$30–\$100/month, hallucinate text, and output blurry 24fps videos.  
-**`scenesin`** turns your script into **crisp 60fps motion graphics, synchronized AI voiceover, dynamic word-by-word subtitles, procedural sound effects, and ducked background music** — rendered directly on your machine.
+Most AI video tools cost \$30–\$100/month, hallucinate blurry text, and output robotic 24fps videos.  
+**`scenesin`** turns your script into **cinematic motion graphics, live auto-scrolling website laptop demos, real company vector logos, Ken Burns photos of famous people & topics, expressive stickman animations, human-sounding AI voiceover, word-synced captions, and procedural SFX** — rendered locally at `0` dropped frames.
 
-Works universally with **Antigravity**, **Claude Code**, **Cursor**, or standalone from any **Terminal (Mac, Windows, Linux)**!
+Works universally with **Antigravity**, **Claude Code**, **Cursor**, or standalone from any **Terminal (Windows, macOS, Linux)**!
 
 ---
 
-## 🛠️ Built-In Motion & Rendering Stack (100% Free & Open-Source)
+## ✨ What's New in v2.0 (Cinematic & Online Media Engine)
 
-Every project rendered with `scenesin` has instant access to studio-grade motion libraries served directly by the engine:
+- **🌐 Live Website Laptop Snapshots (`scenesin snap <url>`)**: Automatically captures any website in retina quality and animates it inside a sleek **MacBook / Browser screen** with smooth auto-scroll, glass glare sweep, and animated mouse cursor!
+- **🏷️ Instant Company Vector Logos (`scenesin logo <brand>`)**: Mention GitHub, Apple, OpenAI, Tesla, YouTube, or any brand — pulls crisp SVG logos automatically with zero API keys.
+- **🖼️ Real Photos of Famous People & Topics (`scenesin photo "<query>"`)**: Pulls high-res real photos via Wikimedia Commons and animates them with **Ken Burns zoom**, Polaroid/editorial cards, and **Vox / Johnny Harris highlighter sweeps**.
+- **🎥 Cinematic Post-FX (`/vendor/cinema.js`)**: Subtle organic film grain, soft vignette, whip-pan transitions, animated Bezier mouse cursor + click ripples, and `Rough.js` hand-drawn underlines & callouts — **cinematic, never robotic**.
+- **🎙️ 7 Curated Human-Sounding Voices (+ 300+ Languages)**: Choose from *Confident YouTube* (`Andrew`), *Enthusiastic Shorts* (`Steffan`), *"What If" Narrator* (`Brian`), *Deep Cinema* (`Christopher`), *Expressive Female* (`Ava`), *British Tech* (`Ryan`), and *Arabic Neural* (`Jamal`) — plus 300+ Edge-TTS & offline Kokoro-82M voices.
+
+---
+
+## 🛠️ Built-In Free Motion & Rendering Stack
+
+Every project rendered with `scenesin` has instant access to studio-grade libraries served directly by the engine:
 
 | Library | Role in `scenesin` | Access |
 |---|---|---|
+| **Cinema Kit** | Laptop website viewer, Vox highlighter, mouse cursor, Ken Burns photo cards, film grain & whip-pans | `/vendor/cinema.js` |
 | **GSAP** | Studio timelines, `SplitText`, `MorphSVG`, `DrawSVG`, `ScrambleText`, elastic springs | `/node_modules/gsap/index.js` |
+| **Rough.js** | Hand-drawn sketchy highlights, circles, slashes & editorial whiteboard lines | `/vendor/rough.js` |
 | **Anime.js** | Smooth spring physics, staggered kinetic reveals, SVG path morphing | `/vendor/anime.js` |
-| **Rough.js** | Hand-drawn whiteboard, sketchy illustrations, editorial paper-cutout lines | `/vendor/rough.js` |
 | **Mo.js** | Explosive bursts, shape swirls, kinetic particle pops on cuts | `/vendor/mojs.js` |
 | **Three.js** | Full 3D WebGL environments, glowing anatomical/scientific meshes, camera sweeps | `/vendor/three.js` |
 | **FFmpeg** | Bundled H.264 MP4 + AAC audio encoding (zero manual PATH setup) | Built-in (`@ffmpeg-installer/ffmpeg`) |
 | **Manim** *(optional)* | 3Blue1Brown-style math & scientific animations (`pip install manim`) | `python scripts/manim_bridge.py` |
-| **Edge-TTS / Kokoro / WhisperX** | Free neural voiceover + word-level / phoneme-level timestamp sync | `scripts/voice.py` & `requirements-optional.txt` |
+| **Edge-TTS / Kokoro / WhisperX** | Free neural voiceover + millisecond word-boundary sync | `scripts/voice.py` & `requirements-optional.txt` |
 
 ---
 
@@ -43,37 +54,24 @@ Every project rendered with `scenesin` has instant access to studio-grade motion
 
 | Format | Dimensions | Best For |
 |---|---|---|
-| **9:16 Vertical** | `1080 x 1920` | YouTube Shorts, Instagram Reels, TikTok |
-| **16:9 Landscape** | `1920 x 1080` | YouTube Long-Form, Pitch Decks, Demos, Web Embeds |
+| **9:16 Vertical** | `1080 × 1920` | YouTube Shorts, Instagram Reels, TikTok |
+| **16:9 Landscape** | `1920 × 1080` | YouTube Long-Form, Pitch Decks, Product Demos, Web Embeds |
 
 ---
 
-## 🎨 The 8 Visual Styles
+## 🎨 10+ Visual Styles
 
 ```text
-1. ⚡ Kinetic Typography
-   Bold title cards, dynamic spring physics, neon keyword glows, and animated metric counters.
-
-2. 💻 Technology / Software Explainer
-   Dark-mode VS Code typing, terminal commands, browser mockups, and microservice node diagrams.
-
-3. 🎨 2D Cartoon Animation
-   Expressive characters, animated storytelling, flat vector art, and anatomical cutaways.
-
-4. 🌐 3D Explainer
-   Three.js procedural meshes, orbiting camera paths, futuristic wireframes, and volumetric lighting.
-
-5. 📊 Infographic / Data Visualization
-   Animated rising bar charts, circular donut percentage meters, KPI metric cards, and statistics.
-
-6. 📜 Documentary / Paper Cutout
-   Stop-motion ripped paper textures, archival illustrations, timeline pins, and historical collage.
-
-7. 🗺️ Maps / Geography
-   3D globe & vector world projections, curved flight paths, animated borders, and GPS radar pins.
-
-8. 🔬 Scientific Visualization
-   3D human body with glowing organs, rotating DNA helices, molecular bonds, and physics particles.
+ 1. ⚡ Kinetic Typography        Bold titles, neon highlights, spring physics & animated counters
+ 2. 💻 Tech / Software Explainer VS Code typing, terminal logs, live laptop websites & API nodes
+ 3. 🕹️ Stick Story (Stickman)    Expressive stickman actors, day/night rooms & gold step cards
+ 4. 🎨 2D Cartoon Animation      Flat vector characters, x-ray cutaways & animated storytelling
+ 5. 🌐 3D Explainer              Three.js procedural meshes, orbiting cameras & volumetric lighting
+ 6. 📊 Infographics & Data Viz   Animated rising bar charts, circular donut gauges & KPI cards
+ 7. 📜 Documentary / Paper Cut   Torn paper textures, real Ken Burns photos & archival timelines
+ 8. 🗺️ Maps & Geography          Curved flight routes, borders & pulsating GPS radar pins
+ 9. 🔬 Scientific Visualization  3D glowing organs, DNA helices, molecular bonds & physics
+10. 🔀 Smart Auto-Mix (Cinema)   Blends styles + live websites + company logos + real photos!
 ```
 
 ---
@@ -84,86 +82,62 @@ Every project rendered with `scenesin` has instant access to studio-grade motion
 ```bash
 git clone https://github.com/zeklat/scenesin.git
 cd scenesin
-```
-*(The repository starts clean and lightweight. No 1 GB model weights are downloaded into Git!)*
-
-### 2. Install dependencies
-```bash
 npm install
 ```
+*(Starts clean and lightweight — zero 1 GB model weights in Git, and `output/` starts empty!)*
 
-### 3. Launch the Interactive Video Wizard
+### 2. Launch the Interactive Director Wizard
 ```bash
 node bin/scenesin.mjs create
-# or using Python:
+# or via Python:
 python scenesin.py create
 ```
 
-The interactive wizard asks you 5 simple questions:
+The interactive wizard directs your video across **8 creative choices**:
 1. **Format**: `9:16 Vertical` or `16:9 Landscape`
-2. **Visual Style**: Pick from the 8 styles (or Smart Auto-Mix)
-3. **Voiceover**: `Yes / No` (Select from Guy, Jenny, Aria, Ryan, Sonia, Michael, Heart)
-4. **Sound Effects (SFX)**: `Yes / No` (Synchronized whooshes, keyboard clicks, pops)
-5. **Background Music**: `Yes / No` (Lo-Fi, Synthwave, Ambient with auto-ducking)
-
-Your project is automatically initialized inside `output/<your-project-name>/`!
+2. **Visual Style**: Pick from 10 styles (including *Stickman* & *Smart Auto-Mix*)
+3. **Color Theme**: *Neon Cyber*, *Editorial Documentary*, *Apple Minimal*, *Warm Paper*, or *Matrix Terminal*
+4. **Online Media Assets**: Auto-include live website laptop snaps, company logos & famous person photos (`Yes / No`)
+5. **Characters**: *None*, *Stickman Actor*, or *2D Cartoon Host*
+6. **Cinematic FX**: Film grain, vignette, whip-pan transitions & animated mouse cursor (`Yes / No`)
+7. **Voiceover**: `Yes / No` + 7 curated cinematic voices (*Andrew YouTube*, *Steffan Shorts*, *Brian "What If"*, *Christopher Cinema*, *Ava Female*, *Ryan UK*, *Jamal Arabic*) or any custom ID
+8. **Sound Effects & Background Music**: Synchronized procedural SFX + optional auto-ducked music
 
 ---
 
 ## 🎮 CLI Commands
 
 ```bash
+# Snap any live website for laptop/browser scenes
+node bin/scenesin.mjs snap https://github.com/zeklat/scenesin output/my-video/assets/snaps/site.png
+
+# Fetch a crisp SVG company logo (GitHub, Apple, OpenAI, Tesla, YouTube...)
+node bin/scenesin.mjs logo github output/my-video/assets/logos/github.svg
+
+# Fetch a real photo of a famous person or topic
+node bin/scenesin.mjs photo "Steve Jobs" output/my-video/assets/media/person.jpg
+
 # Preview live in browser at 60 FPS
 node bin/scenesin.mjs preview output/my-video
 
-# Check frame integrity & caption timings
+# Check frame integrity & word-synced captions
 node bin/scenesin.mjs check output/my-video
 
-# Generate a visual contact sheet of all shots
-node bin/scenesin.mjs sheet output/my-video review/sheet.jpg
+# Generate a visual QA contact sheet
+node bin/scenesin.mjs sheet output/my-video review/all.jpg
 
-# Render the final MP4 video
+# Render final 1080p MP4
 node bin/scenesin.mjs render output/my-video
 ```
 
 ---
 
-## 🤖 Use with Any AI Agent
+## 🤖 Use with Any AI Coding Agent
 
-`scenesin` is built from the ground up for agentic workflows:
-
-- **Antigravity**: Load the native skill located at `SKILL.md` or `.agents/skills/scenesin/SKILL.md`. Prompt:  
-  *"Make a 16:9 tech explainer video explaining Docker in 45 seconds using scenesin."*
-- **Claude Code**: Works out of the box with `CLAUDE.md`.
-- **Cursor**: Includes `.cursorrules` and `.cursor/rules/scenesin.mdc` for instant project orchestration.
-
----
-
-## 📁 Clean Repository Layout
-
-```text
-scenesin/
-├── bin/
-│   └── scenesin.mjs         # Universal CLI runner & interactive wizard
-├── scenesin.py              # Python CLI entrypoint
-├── src/
-│   └── engine/              # Capture engine, browser locator, ffmpeg bridge
-├── styles/                  # The 8 Visual Style Templates
-│   ├── kinetic-typography/
-│   ├── tech-explainer/
-│   ├── cartoon-2d/
-│   ├── 3d-explainer/
-│   ├── infographics/
-│   ├── paper-cutout/
-│   ├── maps-geo/
-│   └── scientific-viz/
-├── scripts/                 # Voice synthesis & timing engines
-├── output/                  # User created projects (empty on git clone via .gitkeep)
-│   └── .gitkeep
-├── SKILL.md                 # Antigravity agent specification
-├── CLAUDE.md                # Claude Code configuration
-└── .cursorrules             # Cursor AI assistant rules
-```
+`scenesin` ships with native skill & rule files so **any AI agent** can direct, fetch real websites/logos/photos, animate, QA, and render full videos for you:
+- **Antigravity**: [SKILL.md](SKILL.md) & `.agents/skills/scenesin/SKILL.md`
+- **Claude Code**: [CLAUDE.md](CLAUDE.md) & `.claude/skills/scenesin/SKILL.md`
+- **Cursor**: [.cursorrules](.cursorrules) & `.cursor/rules/scenesin.mdc`
 
 ---
 
@@ -173,4 +147,4 @@ Built with ❤️ by **Anouar Zeklat**
 Instagram: [@anouar.co](https://instagram.com/anouar.co)  
 YouTube: [@anouarzeklat](https://www.youtube.com/@anouarzeklat)  
 X: [@anouarzeklat](https://x.com/anouarzeklat)  
-Feel free to open an issue, submit a pull request, or tag **@anouar.co** in videos you create!
+Feel free to star ⭐ the repo, open an issue, or tag **@anouar.co** in videos you create!

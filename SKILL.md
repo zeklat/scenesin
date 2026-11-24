@@ -12,8 +12,13 @@ Create finished motion graphic explainer videos completely in code on your compu
 
 **Everything is code**: HTML Canvas / SVG, Chromium headless rendering, **GSAP**, **Anime.js**, **Rough.js**, **Mo.js**, **Three.js**, **Manim** (optional), procedural audio synthesis, and **FFmpeg** multiplexing. No paid AI video APIs, no subscription fees, no credit limits.
 
-### Built-In Free Motion Libraries (Available in Every Project)
+### Built-In Free Motion & Cinematic Media Libraries (Available in Every Project)
 The `scenesin` engine automatically serves installed libraries at `/vendor/*` and `/node_modules/*`:
+- **Cinema Media Kit** (`import * as Cinema from '/vendor/cinema.js'` — `loadImage`, `drawLaptopWebsite`, `drawArticleHighlight`, `drawMouseCursor`, `drawPhotoCard`, `drawBrandBadge`, `whipPanX`, `drawCinemaPostFX`)
+- **Live Online Media CLI** (Zero API Keys):
+  - **Website Mentioned** → run `node bin/scenesin.mjs snap <url> <proj>/assets/snaps/site.png` and render it on a sleek laptop screen with `Cinema.drawLaptopWebsite(...)` + auto-scroll & mouse cursor!
+  - **Company Mentioned** → run `node bin/scenesin.mjs logo <company> <proj>/assets/logos/<brand>.svg` and display it with `Cinema.drawBrandBadge(...)`!
+  - **Famous Person / Topic Mentioned** → run `node bin/scenesin.mjs photo "<name>" <proj>/assets/media/person.jpg` and animate it with `Cinema.drawPhotoCard(...)` (Ken Burns zoom)!
 - **GSAP** (`import { gsap } from '/node_modules/gsap/index.js'` — plus `SplitText`, `MorphSVGPlugin`, `DrawSVGPlugin`, `MotionPathPlugin`, `ScrambleTextPlugin`)
 - **Anime.js** (`import * as anime from '/vendor/anime.js'` — springs, staggers, SVG morphing)
 - **Rough.js** (`import rough from '/vendor/rough.js'` — hand-drawn sketchy/whiteboard Canvas & SVG)
@@ -49,37 +54,36 @@ The `scenesin` engine automatically serves installed libraries at `/vendor/*` an
 
 ---
 
-## 3. Mandatory User Intake Workflow
+## 3. Mandatory Creative Director Intake Workflow
 
-Whenever the user asks you to create a video, you MUST ask for these 5 options:
+Whenever the user asks you to create a video, ask for these creative choices cleanly (all at once):
 
 ```text
 1. Format:
-   • 9:16 Vertical (Shorts/Reels/TikTok)
-   • 16:9 Landscape (YouTube)
+   • 9:16 Vertical (Shorts/Reels/TikTok)  |  16:9 Landscape (YouTube)
 
 2. Visual Style:
-   • Kinetic Typography
-   • Technology / Software Explainer
-   • 2D Cartoon Animation
-   • 3D Explainer
-   • Infographic / Data Visualization
-   • Documentary / Paper Cutout
-   • Maps / Geography
-   • Scientific Visualization
-   • Smart Auto-Mix
+   • Kinetic Typography · Tech Explainer · Stickman (stick-story) · 2D Cartoon
+   • 3D Explainer · Infographics · Paper Cutout · Maps & Geo · Scientific Viz · Smart Auto-Mix
 
-3. Voiceover Narration:
-   • Yes (Pick a voice: Guy, Jenny, Aria, Ryan, Sonia, Michael, Heart)
-   • No (Captions-only kinetic mode)
+3. Color Theme & Mood:
+   • Neon Cyber Dark · Editorial Documentary · Apple Minimal · Warm Paper · Matrix Terminal
 
-4. Sound Effects (SFX):
-   • Yes (Synchronized whooshes, pops, typing clicks)
-   • No
+4. Online Visual Assets (Cinematic Rule):
+   • Yes/No — Auto-snap mentioned websites onto laptop screens, fetch company SVG logos,
+     and pull real photos of famous people & topics!
 
-5. Background Music:
-   • Yes (Lo-Fi, Synthwave, Cinematic with auto-ducking)
-   • No
+5. Characters & Cinematic FX:
+   • Character: None · Stickman Actor · 2D Cartoon Host
+   • Cinematic FX: Film grain, vignette, whip-pan transitions, animated mouse cursor
+
+6. Voiceover (7 Curated Human-Sounding Voices + 300+ custom IDs):
+   • Andrew (Confident YouTube) · Steffan (Enthusiastic Shorts) · Brian ("What If" Narrator)
+   • Christopher (Deep Cinema) · Ava (Expressive Female) · Ryan (British Tech) · Jamal (Arabic)
+   • Or No Voiceover (captions-only)
+
+7. SFX & Background Music:
+   • SFX: Yes / No   |   Background Music: Yes / No
 ```
 
 ---
