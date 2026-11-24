@@ -22,7 +22,8 @@ const VENDOR_ALIASES = {
   '/vendor/rough.js': 'roughjs/bundled/rough.esm.js',
   '/vendor/anime.js': 'animejs/dist/bundles/anime.esm.min.js',
   '/vendor/mojs.js': '@mojs/core/dist/mo.umd.js',
-  '/vendor/three.js': 'three/build/three.module.js'
+  '/vendor/three.js': 'three/build/three.module.js',
+  '/vendor/three.core.js': 'three/build/three.core.js'
 };
 const ENGINE_ALIASES = {
   '/vendor/cinema.js': path.join(ENGINE_REPO_ROOT, 'src/engine/cinema.mjs')
