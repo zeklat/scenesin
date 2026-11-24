@@ -17,6 +17,7 @@ const REPO_ROOT = path.resolve(__dirname, '..');
 const STYLES = [
   { id: 'kinetic-typography', name: 'Kinetic Typography', desc: 'Animated words, bold titles, dynamic text, transitions' },
   { id: 'tech-explainer', name: 'Technology / Software Explainer', desc: 'Code editor, terminal, browser, API diagrams' },
+  { id: 'stick-story', name: 'Stick Story (Stickman Animation)', desc: 'Stick figures, expressive acting eyes, survival steps, room sets' },
   { id: 'cartoon-2d', name: '2D Cartoon Animation', desc: 'Characters, storytelling, flat vector illustration' },
   { id: '3d-explainer', name: '3D Explainer', desc: 'Three.js 3D meshes, orbiting camera, volumetric lighting' },
   { id: 'infographics', name: 'Infographic / Data Visualization', desc: 'Charts, statistics, comparisons, animated counters' },

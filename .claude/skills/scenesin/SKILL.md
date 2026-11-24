@@ -39,12 +39,13 @@ The `scenesin` engine automatically serves installed libraries at `/vendor/*` an
 |---|---|---|---|
 | 1 | **`kinetic-typography`** | Bold titles, neon keywords, dynamic spring text, counters, badges | High-energy insights, mindset shifts, business rules, quotes |
 | 2 | **`tech-explainer`** | Dark-mode code editor, terminal logs, browser mockups, API node graphs | Software development, developer tools, system architecture, SaaS |
-| 3 | **`cartoon-2d`** | 2D character reactions, flat vector cutaways, expressive body language | Storytelling, "what happens if", health, life habits |
-| 4 | **`3d-explainer`** | Three.js 3D meshes, orbiting camera paths, volumetric lighting | Futuristic tech, mystery, spatial dimensions, mechanics |
-| 5 | **`infographics`** | Animated bar charts, donut percentage meters, KPI cards, statistics | Market data, finance, KPI reviews, comparative metrics |
-| 6 | **`paper-cutout`** | Stop-motion paper textures, archival illustrations, timeline pins | History, documentaries, biographies, historical events |
-| 7 | **`maps-geo`** | 3D/flat maps, animated flight routes, pulsating GPS radar pins | Travel routes, geopolitics, global trade, migrations |
-| 8 | **`scientific-viz`** | 3D human body, glowing internal organs, DNA helices, molecular structures | Biology, medical science, human anatomy, physics |
+| 3 | **`stick-story`** | Stick figures with expressive acting eyes, limb kinematics, room sets | "What would you do if...?", survival steps, life hacks, funny scenarios |
+| 4 | **`cartoon-2d`** | 2D character reactions, flat vector cutaways, expressive body language | Storytelling, "what happens if", health, anatomy |
+| 5 | **`3d-explainer`** | Three.js 3D meshes, orbiting camera paths, volumetric lighting | Futuristic tech, mystery, spatial dimensions, mechanics |
+| 6 | **`infographics`** | Animated bar charts, donut percentage meters, KPI cards, statistics | Market data, finance, KPI reviews, comparative metrics |
+| 7 | **`paper-cutout`** | Stop-motion paper textures, archival illustrations, timeline pins | History, documentaries, biographies, historical events |
+| 8 | **`maps-geo`** | 3D/flat maps, animated flight routes, pulsating GPS radar pins | Travel routes, geopolitics, global trade, migrations |
+| 9 | **`scientific-viz`** | 3D human body, glowing internal organs, DNA helices, molecular structures | Biology, medical science, human anatomy, physics |
 
 ---
 
