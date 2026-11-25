@@ -17,7 +17,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
  * Capture a clean, retina screenshot of any live website using headless Chromium.
  * Ideal for animating real websites inside a laptop or browser mockup!
  */
-export async function snapWebsite(url, outPath, { width = 1440, height = 900, fullPage = false, waitMs = 1800 } = {}) {
+export async function snapWebsite(url, outPath, { width = 1440, height = 900, fullPage = false, waitMs = 3200 } = {}) {
   const browserPath = findBrowser();
   if (!browserPath) throw new Error('No Chromium browser found (Chrome, Brave, or Edge required).');
 
